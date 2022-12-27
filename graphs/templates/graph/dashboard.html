@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div class="row">
+    <div class="offset-3 col-6 mt-5">
+            <div class="h2 text-center "  > DATA STRUCTURE - GRAPH</div>
+        <hr>
+    </div>
+</div>
+<div class="row">
+    <div class="offset-2 col-4">
+            <div class="h4"> Group List</div>
+                {% if groups %}
+                    <div class="list-group">
+                        {% for group in groups%}
+                        <a href="#" class="list-group-item list-group-item-action"
+                            hx-get="{% url 'graphs:graph_nodes' group.pk %}"
+                            hx-target="#listdata"
+                        >{{group.name}}</a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+             
+    </div>
+    <div class="col-4" id="listdata">
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <hr>
+    </div>
+</div>
+
+<div class="row">
+    <div class="offset-3 col-6 text-center">
+        <a name="" id="" class="btn btn-primary" href="{% url 'graphs:nodeshow' %}" role="button" target="_blank">Full Graph Diagram</a>
+            <a name="" id="" class="btn btn-primary" href="{% url 'graphs:dfsshow' %}" role="button" target="_blank">Depth First Search</a>
+    </div>
+</div>
+ 
+   
+{% endblock%}

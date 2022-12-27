@@ -1,0 +1,15 @@
+{% if graphs %}
+<h3> Graph Connections</h3>
+
+            <ul class="list-group">
+                {% for graph in graphs%}
+                    <li class="list-group-item">
+                        {{ graph.fromNode.name}} ------ {{graph.weight}}------->  {{ graph.toNode.name}} 
+                    </li>
+                {% endfor %}
+            </ul>
+
+       
+{% else %}
+<div class="h5"> No Graphs to display</div>
+{% endif %}
